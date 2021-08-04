@@ -1,0 +1,203 @@
+	* {
+		box-sizing: border-box;
+		margin: 0;
+	}
+
+	body {
+		font-family: 'DM Sans', sans-serif;
+	}
+
+	/* Reset CSS */
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	/* body의 font-family가 잘 안 먹는 요소들: button, input, textarea
+		=> font-family와 기본 글자크기 따로 주기 */
+	button,
+	input,
+	textarea {
+		font-family: 'DM Sans', sans-serif;
+		font-size: 16px;
+		border: none;
+		background-color: transparent;
+	}
+
+	button:focus,
+	button:active,
+	input:focus,
+	input:active,
+	textarea:focus,
+	textarea:active {
+		outline: none;
+		box-shadow: none;
+	}
+
+	ul,
+	ol,
+	li {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	p {
+		font-size: 16px;
+		line-height: 1.5;
+		color: #2B292D;
+		letter-spacing: -0.04em;
+	}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 600px;
+	height: 7vh;
+}
+
+header .header-title i {
+	color: #ff4949;
+}
+
+video {
+	width: 600px;
+}
+
+section {
+	padding: 1rem;
+	width: 600px;
+}
+
+.title-block {
+	height: 150px;
+	margin-bottom: 2rem;
+}
+
+.title-block .tags {
+	color: #0066ff;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.title-block .titles {
+	overflow: hidden;
+	display: flex;
+}
+
+.titles .title {
+	font-weight: 600;
+	font-size: 1.5rem;
+	flex-grow: 9;
+}
+
+.titles .more-text-arrow {
+	flex-grow: 1;
+}
+
+.titles .more-text-arrow i {
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.title-block .detail {
+	font-size: 1rem;
+	font-weight: 600;
+	opacity: 40%;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.buttons .button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	/* border: 1px solid #888; */
+	flex-grow: 1;
+	opacity: 50%;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.button i {
+	font-size: 1.5rem;
+	padding-bottom: 1rem;
+}
+
+.subscribe {
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.subscribe .author-block {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.author-image img {
+	display: block;
+	border-radius: 50%;
+}
+
+.author-block .author-info {
+	margin-left: 20px;
+}
+
+.author-info .author {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.subscribe .subscribe-btn {
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #ff4949;
+	cursor: pointer;
+}
+
+.subscribe-btn span {
+	letter-spacing: -0.07;
+	
+}
+
+.up-next-title {
+	font-weight: 600;
+	opacity: 40%;
+	margin-bottom: 1rem;
+}
+
+.up-next-playlist {
+	height: 100vh;
+	overflow: hidden;
+}
+
+.up-next-playlist .playlist {
+	display: flex;
+}
+
+
+/* 태블릿 화면 */
+
+@media screen and (min-width: 768px) {
+	header {
+		width: 1024px;
+	}
+
+	video {
+		width: 1024px;
+	}
+
+}
