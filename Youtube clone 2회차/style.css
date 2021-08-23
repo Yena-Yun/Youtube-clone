@@ -10,6 +10,7 @@
 	/* Size */
 	--padding: 12px;
 	--avatar-size: 36px;
+	--icon-size: 16px;
 
 	/* Font Size */
 	--font-large: 18px;
@@ -33,10 +34,12 @@ ul {
 	list-style: none;
 }
 
+/* focus는 클릭한 순간, active는 눌려진 것 */
 button,
 button:focus {
 	border: none;
 	outline: none;
+	background: none;
 	cursor: pointer;
 }
 
@@ -78,7 +81,7 @@ header .icons .fa-search {
 }
 
 /* video info */
-.info {
+body > .info {
 	padding: var(--padding);
 }
 
@@ -98,9 +101,160 @@ header .icons .fa-search {
 
 .info .metadata .titleAndButton .title {
 	font-size: var(--font-medium);
+	margin-right: var(--padding);
+}
+
+/* JS에 의해 title에 clamp라는 클래스가 있을 때만 적용 (평소에는 clamp가 적용되어 2줄까지만 보이다가 화살표 버튼을 누르면 clamp 내용들이 제거되어 전체 텍스트가 다 보임) */
+.info .metadata .titleAndButton .title.clamp {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
 }
 
+.info .metadata .titleAndButton .moreBtn {
+	height: 100%;
+	/* moreBtn에 적용된 속성이 변화할 때 애니메이션 주기 - transform이 적용되는 과정을 부드럽게 전환 */
+	transition: transform 300ms ease-in-out;
+}
+
+/* 화살표 버튼 누르면 위쪽을 향하게 */
+.info .metadata .titleAndButton .moreBtn.clicked {
+	transform: rotate(180deg)
+}
+
+.info .views {
+	font-size: var(--font-small);
+	color: var(--grey-dark-color);
+}
+
+/* Action button */
+.info .actions {
+	display: flex;
+	justify-content: space-around;
+	margin: var(--padding) 0;
+}
+
+.info .actions button {
+	display: flex;
+	flex-direction: column;
+	font-size: var(--font-small);
+	color: var(--grey-dark-color);
+}
+
+.info .actions button i {
+	/* 더 넓은 범위인 margin을 먼저 쓰고 */
+	margin: 0 auto;
+	/* 더 좁은 범위인 margin-bottom이 오버라이딩 하게 함 (덮어씀) */
+	margin-bottom: calc(var(--padding) / 2);
+	font-size: var(--icon-size);
+}
+
+/* 아이콘이 눌러졌을 때 자바스크립트로 active 클래스 줄 예정 */
+.info .actions button i.active {
+	color: var(--blue-color);
+}
+
+/* Channel Description */
+.info .channel {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid var(--grey-light-color);
+	border-bottom: 1px solid var(--grey-light-color);
+}
+
+.info .channel .metadata {
+	display: flex;
+	align-items: center;
+}
+
+/* 이미지 크기 조절 */
+.info .channel .metadata img {
+	width: var(--avatar-size);
+	height: var(--avatar-size);
+	border-radius: 50%;
+}
+
+.info .channel .metadata .info {
+	display: flex;
+	flex-direction: column;
+}
+
+.info .channel .metadata .info .name {
+	font-size: var(--font-medium);
+}
+
+.info .channel .metadata .info .subscribers {
+	font-size: var(--font-small);
+	color: var(--grey-dark-color);
+}
+
+.info .channel .subscribe {
+	/* uppercase: 모두 대문자, lowercase: 모두 소문자, capitalize: 앞에만 대문자 */
+	text-transform: uppercase;
+	color: var(--red-color);
+	font-size: var(--font-medium);
+}
+
+/* up next */
+.upNext {
+	padding: 0 var(--padding);
+}
+
+.upNext > .title {
+	font-size: var(--font-medium);
+	color: var(--grey-dark-color);
+	margin-bottom: calc(var(--padding) / 2);
+}
+
+.upNext .item {
+	display: flex;
+	margin-top: var(--padding);
+}
+
+.upNext .item .img {	
+	/* 줄어들 때나 늘어날 때나 각각 1, 1로 지정하고 base는 35%로 */
+	flex: 1 1 35%;
+	margin-right: var(--padding);
+}
+
+.upNext .item .img img {
+	/* display: block 말고 width: 100% */
+	width: 100%;
+}
+
+.upNext .item .info {	
+	flex: 1 1 60%;
+}
+
+.upNext .item .moreBtn {	
+	flex: 1 1 5%;
+}
+
+.upNext .item .info {
+	display: flex;
+	flex-direction: column;
+}
+
+.upNext .item .info .title {
+	font-size: var(--font-small);
+}
+
+.upNext .item .info .name,
+.upNext .item .info .views {
+	font-size: var(--font-micro);
+	color: var(--grey-dark-color);
+}
+
+.infoAndUpNext {
+	display: flex;
+	flex-direction: column;
+}
+
+/* 화면이 768px 이상일 때 */
+@media screen and (min-width: 768px) {
+	.infoAndUpNext {
+		flex-direction: row;
+		margin: var(--padding) 0;
+	}
+}
