@@ -1,3 +1,4 @@
+/* css 시작 시 :root 안에 사용할 글자색(color), 여백(size), 글자크기(font size)들을 변수로 지정하고 var(--변수명) 형태로 아래에서 사용 */
 :root {
 	/* Color */
 	--white-color: #fff;
@@ -34,7 +35,7 @@ ul {
 	list-style: none;
 }
 
-/* focus는 클릭한 순간, active는 눌려진 것 */
+/* focus는 클릭한 순간, active는 이미 클릭된 상태 */
 button,
 button:focus {
 	border: none;
@@ -118,7 +119,7 @@ body > .info {
 	margin-right: var(--padding);
 }
 
-/* JS에 의해 title에 clamp라는 클래스가 있을 때만 적용 (평소에는 clamp가 적용되어 2줄까지만 보이다가 화살표 버튼을 누르면 clamp 내용들이 제거되어 전체 텍스트가 다 보임) */
+/* JS에 의해 title에 'clamp' 클래스가 있을 때만 적용 (평소에는 clamp가 적용되어 2줄까지만 보이다가 화살표 버튼을 누르면 clamp 내용들이 제거되어 전체 텍스트가 다 보임) */
 .info .metadata .titleAndButton .title.clamp {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -128,13 +129,13 @@ body > .info {
 
 .info .metadata .titleAndButton .moreBtn {
 	height: 100%;
-	/* moreBtn에 적용된 속성이 변화할 때 애니메이션 주기 - transform이 적용되는 과정을 부드럽게 전환 */
+	/* moreBtn에 적용된 속성이 변화할 때 애니메이션 추가 - transform이 부드럽게 적용됨 */
 	transition: transform 300ms ease-in-out;
 }
 
-/* 화살표 버튼 누르면 위쪽을 향하게 */
+
 .info .metadata .titleAndButton .moreBtn.clicked {
-	transform: rotate(180deg)
+	transform: rotate(180deg); /* 화살표 버튼 누르면 뱅글 돌면서 위를 향함 */
 }
 
 .info .views {
@@ -142,7 +143,7 @@ body > .info {
 	color: var(--grey-dark-color);
 }
 
-/* Action button */
+/* Action buttons */
 .info .actions {
 	display: flex;
 	justify-content: space-around;
@@ -159,14 +160,13 @@ body > .info {
 .info .actions button i {
 	/* 더 넓은 범위인 margin을 먼저 쓰고 */
 	margin: 0 auto;
-	/* 더 좁은 범위인 margin-bottom이 오버라이딩 하게 함 (덮어씀) */
+	/* 더 좁은 범위인 margin-bottom이 오버라이딩 (덮어씀) */
 	margin-bottom: calc(var(--padding) / 2);
 	font-size: var(--icon-size);
 }
 
-/* 아이콘이 눌러졌을 때 자바스크립트로 active 클래스 줄 예정 */
 .info .actions button i.active {
-	color: var(--blue-color);
+	color: var(--blue-color); /* 아이콘이 눌러졌을 때 자바스크립트로 active 클래스 부여 */
 }
 
 /* Channel Description */
@@ -182,10 +182,10 @@ body > .info {
 	align-items: center;
 }
 
-/* 이미지 크기 조절 */
 .info .channel .metadata img {
 	width: var(--avatar-size);
 	height: var(--avatar-size);
+	margin: var(--padding);
 	border-radius: 50%;
 }
 
@@ -208,17 +208,20 @@ body > .info {
 	text-transform: uppercase;
 	color: var(--red-color);
 	font-size: var(--font-medium);
+	font-weight: 600;
+	letter-spacing: -0.08;
 }
 
 /* up next */
 .upNext {
-	padding: 0 var(--padding);
+	padding: var(--padding) var(--padding);
 }
 
-.upNext > .title {
+.upNext > .title { 
+	/* title이 밑에 여러 개여서 바로 아래 것만 잡아야 함 */
 	font-size: var(--font-medium);
 	color: var(--grey-dark-color);
-	margin-bottom: calc(var(--padding) / 2);
+	/* upNext의 title이 span이어서 margin은 안 먹음 */
 }
 
 .upNext .item {
@@ -227,21 +230,23 @@ body > .info {
 }
 
 .upNext .item .img {	
-	/* 줄어들 때나 늘어날 때나 각각 1, 1로 지정하고 base는 35%로 */
+	/* 줄어들든 늘어나든 grow, shrink(원래 비율)는 각각 1, 1로 고정, base(기본 크기)는 전체 너비의 35%로 고정 */
 	flex: 1 1 35%;
 	margin-right: var(--padding);
 }
 
 .upNext .item .img img {
-	/* display: block 말고 width: 100% */
+	/* 이미지의 경우 바깥 div에다가 width: 100% 해줘야 바깥 div의 flex가 먹음 */
 	width: 100%;
 }
 
-.upNext .item .info {	
+.upNext .item .info {
+	/* grow, shrink는 각각 1, 1로 고정, base는 전체 너비의 60%로 고정 */
 	flex: 1 1 60%;
 }
 
 .upNext .item .moreBtn {	
+	/* grow, shrink는 각각 1, 1로 고정, base는 전체 너비의 5%로 고정 */
 	flex: 1 1 5%;
 }
 
@@ -265,19 +270,18 @@ body > .info {
 	flex-direction: column;
 }
 
-/* 화면이 768px 이상일 때 */
+/* 반응형: 화면이 992px 이상일 때 */
 @media screen and (min-width: 992px) {
-.two-columns {
-	flex-direction: row;
-}
+	.two-columns {
+		flex-direction: row;
+	}
 
-.playerAndInfo {
-	flex: 1;
-}
+	.playerAndInfo {
+		flex: 1;
+	}
 
-.upNext {
-	flex: 1;
-	margin-left: var(--padding);
-}
-
+	.upNext {
+		flex: 1;
+		margin-left: var(--padding);
+	}
 }
