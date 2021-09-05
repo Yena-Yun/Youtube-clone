@@ -3,10 +3,10 @@
 
 ## 구현화면
 ### 모바일
-<img src="" width="" height="auto">
+<img src="https://i.esdrop.com/d/KwrGH1p1Zl/JZQ54lv8dn.png" width="300" height="auto">
 
 ### 데스크탑
-<img src="" width="" height="auto">
+<img src="https://i.esdrop.com/d/KwrGH1p1Zl/PDuorpqjAE.png" width="550" height="auto">
 
 ## 컴포넌트 구분
 1. **Header** (좌측에 유튜브 로고와 타이틀, 우측에 검색 및 메뉴 아이콘)
@@ -93,7 +93,7 @@ for (let i = 0; i < actionBtn.length; i++) {
 font-awesome에서 찾아서 **한 곳에 모아두고** 
 작업 시 복사해서 사용
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16e44b36-3157-41f4-a39b-da4d1979f68a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16e44b36-3157-41f4-a39b-da4d1979f68a/Untitled.png)
+<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16e44b36-3157-41f4-a39b-da4d1979f68a/Untitled.png" width="350" height="auto">
 
 **단위별로 주석** 넣어주기 
 (' Header ', ' Video Player ' , ' Video Info ' 등등)
