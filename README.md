@@ -34,7 +34,7 @@
 <br/>
 
 ## 어려웠던 점
-### 액션 버튼에 각각 active 효과 따로 부여하기
+### 문제: 액션 버튼에 각각 active 효과 따로 부여하기
 
 강의에서 사용한 querySelector로는 맨 앞의 좋아요 버튼 하나만 선택되었음
 
@@ -42,33 +42,25 @@
 
 ### 첫번째 시도
 
-querySelectorAll로 한 번에 버튼들 다 선택한 다음에 for문을 돌려보려 했는데
+querySelectorAll로 한 번에 버튼들 다 선택한 다음에 for문을 돌려봄
 
-찾아보니 querySelectorAll로 만들어지는 NodeArray~ 배열은 
+querySelectorAll로 만들어지는 NodeArray~ 배열은 addEventListener가 먹히지 않음
 
-addEventListener가 먹지 않는다고 함
-
-그래서 우선은 버튼 하나하나를 DOM으로 잡고 addEventListener 각각 넣어서 
-
-거의 하드코딩 식으로 구현
+그래서 우선은 버튼 하나하나를 DOM으로 잡고 addEventListener 각각 넣어서 하드코딩으로 구현
 
 ### 두번째 시도 - 해결
 
 출처 — 스택오버플로우 ([https://stackoverflow.com/questions/63448582/how-to-toggle-multiple-html-text-elements-using-vanilla-js](https://stackoverflow.com/questions/63448582/how-to-toggle-multiple-html-text-elements-using-vanilla-js))
 
-스택오버플로우에는 toggle 시 html 버튼 안의 텍스트를 바꾸는 내용이었지만 
+스택오버플로우에는 toggle 시 html 버튼 안의 텍스트를 바꾸는 내용이었지만 해당 코드를 응용해서 해결
 
-해당 코드를 응용해서 해결
+포인트는 **e.target**! 
 
-포인트는 **e.target**이었다..! 클릭한 것만 선택하게 해줌
+첫번째 시도에서의 **querySelectorAll**도
 
-(HTML에서 대충 외우고 넘어갔는데 이렇게 써먹힘)
+NodeArray~ 배열 상관없이 for문 돌려서 사용 가능
 
-그리고 **querySelectorAll**은 아무 잘못 없었음
-
-NodeArray 어쩌구 해도 for문 돌려서 쓸 수 있음
-
-for문 안의 실행문만 잘 쓰면 됨
+### 해결한 코드
 
 ```python
 const actionBtn = document.**querySelectorAll**(".metadata .actions button i");
@@ -91,25 +83,3 @@ for (let i = 0; i < actionBtn.length; i++) {
 3. for문으로 actionBtn을 차례로 탐색하다가 
 
     i번째 버튼에 click 이벤트 발생 시 toggle 함수를 실행
-<br/>
-
-## 강의로 얻은 Tips
-
-첨에 시작할 때 **필요한 아이콘**들을 
-font-awesome에서 찾아서 **한 곳에 모아두고** 
-작업 시 복사해서 사용
-
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16e44b36-3157-41f4-a39b-da4d1979f68a/Untitled.png" width="350" height="auto">
-
-**단위별로 주석** 넣어주기 
-(' Header ', ' Video Player ' , ' Video Info ' 등등)
-   ⇒ 접어가며 볼 때 편함
-
-버튼으로 된 아이콘
-<**button** class="moreBtn">
-    <**i** class="fas fa-caret-down"></i>
-</**button**>
-
-채널명, 조회수 등 자잘한 정보들은 
-모두 **metadata(= 특정 내용에 대한 관련 정보)**로 통일
- 
