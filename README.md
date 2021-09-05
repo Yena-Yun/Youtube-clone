@@ -3,10 +3,10 @@
 
 ## 구현화면
 ### 모바일
-<img src="https://i.esdrop.com/d/KwrGH1p1Zl/JZQ54lv8dn.png" width="300" height="auto">
+<img src="https://i.esdrop.com/d/KwrGH1p1Zl/JZQ54lv8dn.png" width="200" height="auto">
 
 ### 데스크탑
-<img src="https://i.esdrop.com/d/KwrGH1p1Zl/PDuorpqjAE.png" width="550" height="auto">
+<img src="https://i.esdrop.com/d/KwrGH1p1Zl/PDuorpqjAE.png" width="500" height="auto">
 
 ## 컴포넌트 구분
 1. **Header** (좌측에 유튜브 로고와 타이틀, 우측에 검색 및 메뉴 아이콘)
