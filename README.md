@@ -4,7 +4,7 @@
 
 ## 구현화면
 ### 모바일
-<img src="https://i.esdrop.com/d/KwrGH1p1Zl/35U6kn11wr.png' border='0'></a>" width="200" height="auto">
+<img src="https://i.esdrop.com/d/KwrGH1p1Zl/35U6kn11wr.png" width="200" height="auto">
 
 ### 데스크탑
 <img src="https://i.esdrop.com/d/KwrGH1p1Zl/BY3JXq4doy.png" width="450" height="auto">
