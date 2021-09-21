@@ -7,7 +7,7 @@
 <img src="https://i.esdrop.com/d/KwrGH1p1Zl/35U6kn11wr.png" width="200" height="auto">
 
 ### 데스크탑
-<img src="https://i.esdrop.com/d/KwrGH1p1Zl/BY3JXq4doy.png" width="450" height="auto">
+<img src="https://i.esdrop.com/d/KwrGH1p1Zl/SDcgQTufcS.png" width="450" height="auto">
 <br/>
 
 ## 컴포넌트 구분
